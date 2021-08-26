@@ -35,6 +35,11 @@ public class UnorderedList<E> {
 			INode temp = deleteNode.getNext().getNext();
 			deleteNode.setNext(temp);
 		}
+		else {
+			MyNode newAdd = new MyNode(key);
+			tail.setNext(newAdd);
+			tail = newAdd;
+		}
 		
 	}
 
