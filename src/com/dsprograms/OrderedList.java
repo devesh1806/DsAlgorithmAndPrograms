@@ -87,4 +87,8 @@ public class OrderedList<E> {
 		System.out.println(printformat);
 	}
 	
+	@Override
+	public String toString() {
+		return "OrderedList nodes are " + head;
+	}
 }
