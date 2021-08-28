@@ -55,18 +55,5 @@ public class PrimeNumbersQueue <E> {
 			System.out.println("There are elements in Queue");
 		}
 	}
-	
-	public void printList() {
-		StringBuffer printformat = new StringBuffer("My Nodes: ");
-		INode temp = this.head;
-		while (temp != null) {
-			printformat.append(temp.getKey());
-			if ( temp != tail) {
-				printformat.append("->");
-			}
-			temp = temp.getNext();
-		}
-		System.out.println(printformat);
-	}
 }
 	

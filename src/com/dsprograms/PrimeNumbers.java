@@ -123,7 +123,6 @@ public class PrimeNumbers<E> {
 			
 			default:
 				break;
-				
 		}
 		
 	}
