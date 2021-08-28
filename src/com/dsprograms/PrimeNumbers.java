@@ -20,6 +20,7 @@ public class PrimeNumbers<E> {
 		return primeArr;
 	}
 	
+	
 	private static int reverse(int change) {
 		int res=0;
 		while(change!=0) {
@@ -29,6 +30,7 @@ public class PrimeNumbers<E> {
 		}
 		return res;
 	}
+	
 	
 	public static Integer[] anagrams(Integer[] newArr,int totalSize) {
 		Integer[] anagram = new Integer[totalSize];
@@ -45,6 +47,7 @@ public class PrimeNumbers<E> {
 		}
 		return anagram;
 	}
+	
 	
 	public static void main(String[] args) {
 		
@@ -82,6 +85,21 @@ public class PrimeNumbers<E> {
 		}
 		
 		Integer[][] anagramsNotAnagrams = new Integer[][] {anagrams,notAnagrams};
+		
+		PrimeNumbersStack myPrimeNumbersStack = new PrimeNumbersStack<>();
+		
+		for(int i=0;i<anagrams.length;i++) {
+			if (anagrams[i]!=null) {
+				myPrimeNumbersStack.push(new MyNode(anagrams[i]));
+			}
+		}
+		
+		//print anagrams in reverse order i.e. LIFO policy 
+		final int size = myPrimeNumbersStack.size();
+		for(int i=0;i<size;i++) {
+			myPrimeNumbersStack.peek();
+			myPrimeNumbersStack.pop();
+		}
 	}
 	
 }
