@@ -1,4 +1,5 @@
 package com.dsprograms;
+import java.util.Scanner;
 
 public class PrimeNumbers<E> {
 	
@@ -51,10 +52,12 @@ public class PrimeNumbers<E> {
 	
 	public static void main(String[] args) {
 		
+		Scanner sc = new Scanner(System.in);
 		Integer[][] primeNumbers = new Integer[10][30];
 		for(int i=0,j=0;i<1000;i=i+100,j++) {
 			primeNumbers[j]= prime(i+1,i+100);
 		}
+		
 		Integer[] newArr = new Integer[300];
 		int k=0;
 		for(int i=0;i<10;i++) {
@@ -86,20 +89,43 @@ public class PrimeNumbers<E> {
 		
 		Integer[][] anagramsNotAnagrams = new Integer[][] {anagrams,notAnagrams};
 		
-		PrimeNumbersStack myPrimeNumbersStack = new PrimeNumbersStack<>();
-		
-		for(int i=0;i<anagrams.length;i++) {
-			if (anagrams[i]!=null) {
-				myPrimeNumbersStack.push(new MyNode(anagrams[i]));
-			}
-		}
 		
 		//print anagrams in reverse order i.e. LIFO policy 
-		final int size = myPrimeNumbersStack.size();
-		for(int i=0;i<size;i++) {
-			myPrimeNumbersStack.peek();
-			myPrimeNumbersStack.pop();
+		System.out.println("Print Anagrams using 1.Stack 2.Queue");
+		int option = sc.nextInt();
+		switch(option) {
+		
+			case 1:
+				
+				PrimeNumbersStack myPrimeNumbersStack = new PrimeNumbersStack<>();
+				for(int i=0;i<anagrams.length;i++) {
+					if (anagrams[i]!=null) {
+						myPrimeNumbersStack.push(new MyNode(anagrams[i]));
+					}
+				}
+				final int size = myPrimeNumbersStack.size();
+				for(int i=0;i<size;i++) {
+					myPrimeNumbersStack.peek();
+					myPrimeNumbersStack.pop();
+				}
+				break;
+				
+			case 2:
+				
+				PrimeNumbersQueue myPrimeNumbersQueue = new PrimeNumbersQueue<>();
+				for(int i=0;i<anagrams.length;i++) {
+					if (anagrams[i]!=null) {
+						myPrimeNumbersQueue.enQueue(new MyNode(anagrams[i]));
+					}
+				}
+				myPrimeNumbersQueue.deQueue();
+				break;
+			
+			default:
+				break;
+				
 		}
+		
 	}
 	
 }
